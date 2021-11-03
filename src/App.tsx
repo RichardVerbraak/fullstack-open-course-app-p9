@@ -22,7 +22,7 @@ const App = () => {
 	return (
 		<div>
 			<Header courseName={courseName} />
-			<Content />
+			<Content courseParts={courseParts} />
 			<p>
 				Number of exercises{' '}
 				{courseParts.reduce((carry, part) => carry + part.exerciseCount, 0)}
