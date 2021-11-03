@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
+import Total from './components/Total'
 
 const App = () => {
 	const courseName = 'Half Stack application development'
@@ -23,10 +24,7 @@ const App = () => {
 		<div>
 			<Header courseName={courseName} />
 			<Content courseParts={courseParts} />
-			<p>
-				Number of exercises{' '}
-				{courseParts.reduce((carry, part) => carry + part.exerciseCount, 0)}
-			</p>
+			<Total courseParts={courseParts} />
 		</div>
 	)
 }
