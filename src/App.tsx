@@ -11,18 +11,20 @@ const App = () => {
 		type: string
 	}
 
-	interface CourseNormalPart extends CoursePartBase {
-		type: 'normal'
+	interface CourseWithDescription extends CoursePartBase {
 		description: string
+	}
+
+	interface CourseNormalPart extends CourseWithDescription {
+		type: 'normal'
 	}
 	interface CourseProjectPart extends CoursePartBase {
 		type: 'groupProject'
 		groupProjectCount: number
 	}
 
-	interface CourseSubmissionPart extends CoursePartBase {
+	interface CourseSubmissionPart extends CourseWithDescription {
 		type: 'submission'
-		description: string
 		exerciseSubmissionLink: string
 	}
 
