@@ -3,33 +3,44 @@ import Header from './components/Header'
 import Content from './components/Content'
 import Total from './components/Total'
 
+// Base type
+interface CoursePartBase {
+	name: string
+	exerciseCount: number
+	type: string
+}
+
+interface CourseWithDescription extends CoursePartBase {
+	description: string
+}
+
+interface CourseNormalPart extends CourseWithDescription {
+	type: 'normal'
+	description: string
+}
+
+interface CourseProjectPart extends CoursePartBase {
+	type: 'groupProject'
+	groupProjectCount: number
+}
+
+interface CourseSubmissionPart extends CourseWithDescription {
+	type: 'submission'
+	description: string
+	exerciseSubmissionLink: string
+}
+
+// The 3 different type of Courses composed of the above interfaces
+// Basically, the 3 models for the type of data in the courseParts array
+export type CoursePart =
+	| CourseNormalPart
+	| CourseProjectPart
+	| CourseSubmissionPart
+
 const App = () => {
-	// new types
-	interface CoursePartBase {
-		name: string
-		exerciseCount: number
-		type: string
-	}
+	const courseName = 'Half Stack application development'
 
-	interface CourseWithDescription extends CoursePartBase {
-		description: string
-	}
-
-	interface CourseNormalPart extends CourseWithDescription {
-		type: 'normal'
-	}
-	interface CourseProjectPart extends CoursePartBase {
-		type: 'groupProject'
-		groupProjectCount: number
-	}
-
-	interface CourseSubmissionPart extends CourseWithDescription {
-		type: 'submission'
-		exerciseSubmissionLink: string
-	}
-
-	type CoursePart = CourseNormalPart | CourseProjectPart | CourseSubmissionPart
-
+	// Returns an array that conform to the CoursePart types
 	const courseParts: CoursePart[] = [
 		{
 			name: 'Fundamentals',
