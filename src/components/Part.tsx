@@ -48,7 +48,7 @@ const Part = ({ part }: { part: CoursePart }) => {
 		}
 
 		default:
-			return null
+			return assertNever(part)
 	}
 }
 

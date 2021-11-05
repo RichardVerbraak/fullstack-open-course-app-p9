@@ -15,18 +15,19 @@ interface CourseWithDescription extends CoursePartBase {
 }
 
 interface CourseNormalPart extends CourseWithDescription {
+	name: 'Fundamentals' | 'Advanced'
 	type: 'normal'
-	description: string
 }
 
 interface CourseProjectPart extends CoursePartBase {
+	name: 'Using props to pass data'
 	type: 'groupProject'
 	groupProjectCount: number
 }
 
 interface CourseSubmissionPart extends CourseWithDescription {
+	name: 'Deeper type usage'
 	type: 'submission'
-	description: string
 	exerciseSubmissionLink: string
 }
 
