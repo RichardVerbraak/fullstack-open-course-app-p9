@@ -10,10 +10,12 @@ interface CoursePartBase {
 	type: string
 }
 
+// Base type for those with a description prop
 interface CourseWithDescription extends CoursePartBase {
 	description: string
 }
 
+// Narrowed down Interfaces in order to use exhaustive checking later (making sure the values are right)
 interface CourseNormalPart extends CourseWithDescription {
 	name: 'Fundamentals' | 'Advanced'
 	type: 'normal'
