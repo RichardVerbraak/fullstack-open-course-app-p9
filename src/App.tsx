@@ -15,6 +15,10 @@ interface CourseWithDescription extends CoursePartBase {
 	description: string
 }
 
+interface CourseWithRequirements extends CourseWithDescription {
+	requirements: string[]
+}
+
 // Narrowed down Interfaces in order to use exhaustive checking later (making sure the values are right)
 interface CourseNormalPart extends CourseWithDescription {
 	name: 'Fundamentals' | 'Advanced'
@@ -33,12 +37,18 @@ interface CourseSubmissionPart extends CourseWithDescription {
 	exerciseSubmissionLink: string
 }
 
+interface CourseRequirementsPart extends CourseWithRequirements {
+	name: 'Backend development'
+	type: 'special'
+}
+
 // The 3 different type of Courses composed of the above interfaces
 // Basically, the 3 models for the type of data in the courseParts array
 export type CoursePart =
 	| CourseNormalPart
 	| CourseProjectPart
 	| CourseSubmissionPart
+	| CourseRequirementsPart
 
 const App = () => {
 	const courseName = 'Half Stack application development'
@@ -69,6 +79,13 @@ const App = () => {
 			description: 'Confusing description',
 			exerciseSubmissionLink: 'https://fake-exercise-submit.made-up-url.dev',
 			type: 'submission',
+		},
+		{
+			name: 'Backend development',
+			exerciseCount: 21,
+			description: 'Typing the backend',
+			requirements: ['nodejs', 'jest'],
+			type: 'special',
 		},
 	]
 

@@ -47,6 +47,20 @@ const Part = ({ part }: { part: CoursePart }) => {
 			)
 		}
 
+		case 'Backend development': {
+			return (
+				<div>
+					<h4>{part.name}</h4>
+					<p>{part.exerciseCount}</p>
+					<p>{part.type}</p>
+					<p>{part.description}</p>
+					<p>
+						Required skills: {part.requirements[0]}, {part.requirements[1]}
+					</p>
+				</div>
+			)
+		}
+
 		default:
 			return assertNever(part)
 	}
